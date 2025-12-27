@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import HookExample from "./components/hook-example";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
 
-  useEffect(() => {
-    console.log("rendered");
+  const inputRef = useRef(null);
 
-    // cleanup func
-    return () => {};
+  useEffect(() => {
+    inputRef.current && inputRef.current.focus();
   }, []);
+
   return (
     <>
       <input
@@ -18,6 +18,7 @@ function App() {
         placeholder="Type Something..."
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
+        ref={inputRef}
       />
       <p>
         you typed : <strong>{inputValue}</strong>
