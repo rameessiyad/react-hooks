@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import HookExample from "./components/hook-example";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     console.log("rendered");
+
+    // cleanup func
+    return () => {};
   }, []);
   return (
     <>
@@ -18,6 +22,7 @@ function App() {
       <p>
         you typed : <strong>{inputValue}</strong>
       </p>
+      <HookExample />
     </>
   );
 }
