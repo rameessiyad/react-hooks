@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import HookExample from "./components/hook-example";
+import ThemeSwitcher from "./components/ThemeSwitcher";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -12,7 +13,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div>
       <input
         type="text"
         placeholder="Type Something..."
@@ -24,7 +25,8 @@ function App() {
         you typed : <strong>{inputValue}</strong>
       </p>
       <HookExample />
-    </>
+      <ThemeSwitcher />
+    </div>
   );
 }
 
